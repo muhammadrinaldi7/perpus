@@ -1,0 +1,86 @@
+<?php
+defined('BASEPATH') or exit('No direct script access allowed');
+
+class Buku_m extends CI_Model
+{
+    public function getAll()
+    {
+        $data = $this->db->get('buku');
+        return $data;
+    }
+    public function getBuku($kodebuku)
+    {
+        $this->db->where('idbuku', $kodebuku);
+        $data = $this->db->get('buku');
+        return $data;
+    }
+    public function getLast()
+    {
+        $this->db->order_by('idbuku', 'DESC');
+        $this->db->limit(1);
+        $data = $this->db->get('buku')->row_array();
+        return $data;
+    }
+    public function getDetail($idbuku)
+    {
+        $this->db->where('idbuku', $idbuku);
+        $data = $this->db->get('buku');
+        return $data;
+    }
+    public function tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok)
+    {
+        $data = [
+            'isbn' => $isbn,
+            'judul' => $judul,
+            'penulis' => $penulis,
+            'penerbit' => $penerbit,
+            'thnterbit' => $thnterbit,
+            'tempatterbit' => $tempatterbit,
+            'halaman' => $halaman,
+            'tebal' => $tebal,
+            'rak' => $rak,
+            'sampul' => $sampul,
+            'kodebuku' => $kodebuku,
+            'sumberbuku' => $sumberbuku,
+            'kategori' => $kategori,
+            'kodeklasifikasi' => $kodeklasifikasi,
+            'stok' => $stok,
+			'tglmasuk' => date("Y-m-d")
+        ];
+        $query = $this->db->insert('buku', $data);
+        return $query;
+    }
+    public function editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok)
+    {
+        $this->db->set('isbn', $isbn);
+        $this->db->set('judul', $judul);
+        $this->db->set('penulis', $penulis);
+        $this->db->set('penerbit', $penerbit);
+        $this->db->set('thnterbit', $thnterbit);
+        $this->db->set('tempatterbit', $tempatterbit);
+        $this->db->set('halaman', $halaman);
+        $this->db->set('tebal', $tebal);
+        $this->db->set('rak', $rak);
+        $this->db->set('sampul', $sampul);
+        $this->db->set('kodebuku', $kodebuku);
+        $this->db->set('sumberbuku', $sumberbuku);
+        $this->db->set('kategori', $kategori);
+        $this->db->set('kodeklasifikasi', $kodeklasifikasi);
+        $this->db->set('stok', $stok);
+        $this->db->where('idbuku', $idbuku);
+        $query = $this->db->update('buku');
+        return $query;
+    }
+    public function deleteData($idbuku)
+    {
+        $this->db->where('idbuku', $idbuku);
+        $query = $this->db->delete('buku');
+        return $query;
+    }
+	public function getID()
+    {
+        $this->db->select('max(idbuku) + 1 as ID');
+        $data = $this->db->get('buku');
+        return $data->result()[0]->ID;
+    }
+}
