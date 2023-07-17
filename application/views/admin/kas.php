@@ -66,7 +66,7 @@
                                             <td>
                                                 <?php
                                                 if ($data['tipe'] == 'masuk') {
-                                                    echo 'Rp ' . $data['nominal'] . ',-';
+                                                    echo 'Rp ' . number_format($data['nominal'],0,',','.'). ',-';
                                                 } else {
                                                     echo '-';
                                                 } ?>
@@ -74,7 +74,7 @@
                                             <td>
                                                 <?php
                                                 if ($data['tipe'] == 'keluar') {
-                                                    echo 'Rp ' . $data['nominal'] . ',-';
+                                                    echo 'Rp ' . number_format($data['nominal'],0,',','.') . ',-';
                                                 } else {
                                                     echo '-';
                                                 } ?>

@@ -23,9 +23,11 @@
                 <td>
                     <center>
                         <?php
-                        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                        echo $generator->getBarcode($data['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
+                        // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                        //                 echo $generator->getBarcode($data['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
+
                         ?>
+                        <img src="assets/image/<?php echo $data['qr'] ?>">
                         <br>
                         Kode buku : <?= $data['kodebuku']; ?>
                         <br>

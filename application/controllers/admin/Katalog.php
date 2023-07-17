@@ -78,9 +78,18 @@ class Katalog extends CI_Controller
         $kodeklasifikasi = $this->input->post('kodeklasifikasi');
         $stok = $this->input->post('stok');
         $sampul = $_FILES['sampul'];
+require "phpqrcode/qrlib.php"; 
+ $penyimpanan = "assets/image/";
+$isi=$kodebuku.'/'.$judul;
+$nama_qr=md5($isi);
+// var_dump($nama_qr);exit;
+  QRcode::png($isi, $penyimpanan.$nama_qr.'.png', QR_ECLEVEL_L, 10, 5); 
+  $qr=$nama_qr.'.png';
+  // $validasi_link=$cetak_link.'.png';
+  // var_dump($qr);exit;
         if (!file_exists($sampul['tmp_name'])) {
             $sampul = 'noimage.jpg';
-            $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok);
+            $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr);
         } else {
             $config['upload_path']          = './assets/data/buku/';
             $config['allowed_types']        = 'gif|jpg|png';
@@ -91,7 +100,7 @@ class Katalog extends CI_Controller
             $upload = $this->upload->do_upload('sampul');
             if ($upload) {
                 $sampul = $this->upload->data('file_name');
-                $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok);
+                $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr);
             } else {
                 $input = false;
             }

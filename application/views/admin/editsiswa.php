@@ -53,6 +53,10 @@
                                             <label for="inputName">No.Hp</label>
                                             <input type="number" name="telp" value="<?= $siswa['telp']; ?>" class="form-control" required>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Email</label>
+                                            <input type="email" name="email" value="<?= $siswa['email']; ?>" class="form-control" required>
+                                        </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">

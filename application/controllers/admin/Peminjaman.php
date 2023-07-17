@@ -140,7 +140,24 @@ class Peminjaman extends CI_Controller
                         'biaya' => $dt['qty'] * $d
                     ];
                     $totdenda += $dtins['biaya'];
+
                     $this->db->insert('denda', $dtins);
+
+                    $cek=$this->db->query("SELECT kodekas FROM kas where kodekas like '%IN%' order by idkas desc")->row_array();
+                    $kode=substr($cek['kodekas'],16,2);
+                    $code=$kode+1;
+                    $kode_akhir='KAS/IN/'.date('dmY').'/'.$code;
+
+                    $dtkas = [
+                        'kodekas' => $dt['kodepinjam'],
+                        'tanggal' => date('Y-m-d'),
+                        'tipe' => 'masuk',
+                        'nominal' => $dt['qty'] * $d,
+                        'keterangan' => 'telat',
+                    ];
+                    $this->db->insert('kas', $dtkas);
+
+                    // var_dump($kode_akhir);exit;
                 }
                 $idLast = $this->kas->getLast();
                 if ($idLast == '') {

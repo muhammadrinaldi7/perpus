@@ -42,6 +42,13 @@ class Peminjaman_m extends CI_Model
     }
     public function tambahData($kodepinjam, $kodeanggota, $kodebuku, $idbuku, $status, $tglpinjam, $lamapinjam, $tgldikembalikan, $qty, $idanggota)
     {
+
+        $cari=$this->db->query("SELECT stok from buku where idbuku='$idbuku'")->row_array();
+        $stok=$cari['stok'];
+        $stok_akhir=$stok-$qty;
+
+
+        $upd=$this->db->query("UPDATE buku set stok='$stok_akhir' where idbuku='$idbuku'");
         $data = [
             'kodepinjam' => $kodepinjam,
             'kodeanggota' => $kodeanggota,
@@ -59,6 +66,20 @@ class Peminjaman_m extends CI_Model
     }
     public function kembalikan($kodepinjam)
     {
+        $cari=$this->db->query("SELECT * FROM peminjaman where kodepinjam='$kodepinjam'")->row_array();
+
+        $kodebuku=$cari['kodebuku'];
+        $qty=$cari['qty'];
+
+        $cek=$this->db->query("SELECT * FROM buku where kodebuku='$kodebuku'")->row_array();
+        $stok=$cek['stok'];
+        $akhir=$stok+$qty;
+
+
+$this->db->set('stok', $akhir);
+        $this->db->where('kodebuku', $kodebuku);
+        $this->db->update('buku');
+
         $this->db->set('status', 'dikembalikan');
         $this->db->set('tglpengembalian', date('Y-m-d'));
         $this->db->where('kodepinjam', $kodepinjam);

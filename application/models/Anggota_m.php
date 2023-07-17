@@ -41,7 +41,7 @@ class Anggota_m extends CI_Model
         $data = $this->db->get('anggota');
         return $data;
     }
-    public function tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto)
+    public function tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto, $email)
     {
         $data = [
             'role' => $role,
@@ -52,6 +52,7 @@ class Anggota_m extends CI_Model
             'alamat' => $alamat,
             'status' => $status,
             'foto' => $foto,
+            'email' => $email,
         ];
         $query = $this->db->insert('anggota', $data);
         return $query;
@@ -63,7 +64,7 @@ class Anggota_m extends CI_Model
         $ubah = $this->db->update('anggota');
         return $ubah;
     }
-    public function editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto)
+    public function editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto, $email)
     {
         $this->db->set('role', $role);
         $this->db->set('kodeanggota', $kodeanggota);
@@ -73,6 +74,7 @@ class Anggota_m extends CI_Model
         $this->db->set('alamat', $alamat);
         $this->db->set('status', $status);
         $this->db->set('foto', $foto);
+        $this->db->set('email', $email);
         $this->db->where('idanggota', $idanggota);
         $query = $this->db->update('anggota');
         return $query;

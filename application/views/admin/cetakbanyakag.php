@@ -41,7 +41,7 @@
             </tr>
             <tr>
                 <td>
-                    <img src="./assets/data/anggota/' . $data['foto']; ?>" width="80px">
+                    <a href="./assets/data/anggota/'<?php echo $data['foto']; ?>"><img src="./assets/data/anggota/'<?php echo $data['foto']; ?>" width="80px"></a>
                 </td>
                 <td>
                     <table>
@@ -78,8 +78,8 @@
                         // echo '<img src="data:image/png;base64,' . base64_encode($generator->getBarcode($data['kodeanggota'], $generator::TYPE_CODE_128, 2, 50)) . '">';
                         // QRcode::png('a');
                      
-                                        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                        echo $generator->getBarcode($data['kodeanggota'], $generator::TYPE_CODE_128, 1, 50);
+                                        // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                                        // echo $generator->getBarcode($data['kodeanggota'], $generator::TYPE_CODE_128, 1, 50);
                                         
                         ?>
                         <br>

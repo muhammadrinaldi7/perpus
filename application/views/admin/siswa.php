@@ -56,7 +56,7 @@
                                 <a href="<?= base_url('admin/siswa/haltambahdata'); ?>" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah data</a>
                                 <a href="#" class="btn btn-success" data-toggle="modal" data-target="#editkelas"><i class="fas fa-caret-square-up"></i> Ubah Kelas</a>
                                 <button id="cetak-banyak" class="btn btn-warning"><i class="fas fa-print"></i> Cetak Kartu Anggota</button>
-								<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success"><i class="fas fa-download"></i> Import</button>
+								<!-- <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success"><i class="fas fa-download"></i> Import</button> -->
                             </div>
                         </div>
                     </div>
@@ -83,6 +83,7 @@
                                             <th>No.Hp</th>
                                             <th>Alamat</th>
                                             <th>Kelas</th>
+                                            <th>Email</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -97,6 +98,7 @@
                                                 <td><?= $data['telp']; ?></td>
                                                 <td><?= $data['alamat']; ?></td>
                                                 <td><?= $data['status']; ?></td>
+                                                <td><?= $data['email']; ?></td>
                                                 <td>
                                                     <a class="badge badge-primary" href="<?= base_url('admin/siswa/haleditdata/') . $data['idanggota']; ?>"><i class="fas fa-edit"></i></a>
                                                     <a class="badge badge-warning" target="_blank" href="<?= base_url('admin/siswa/cetakkartu/') . $data['idanggota']; ?>"><i class="fas fa-print"></i></a>

@@ -71,8 +71,8 @@
                     <center>
                         <br>
                         <?php
-                        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                        echo $generator->getBarcode($anggota['kodeanggota'], $generator::TYPE_CODE_128, 1, 50);
+                        // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                        //                 echo $generator->getBarcode($anggota['kodeanggota'], $generator::TYPE_CODE_128, 1, 50);
                         ?>
                         <br>
                         <?= $anggota['kodeanggota']; ?>

@@ -31,8 +31,8 @@
                                     <div class="col-md-6">
                                         Tanggal Buku Masuk : <?= longdate_indo($katalog['tglmasuk']); ?>
                                         <?php
-                                        $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                        echo $generator->getBarcode($katalog['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
+                                        // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                                        // echo $generator->getBarcode($katalog['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
                                         ?>
                                         <div class="form-group">
                                             <label for="inputName">Kode Buku</label>

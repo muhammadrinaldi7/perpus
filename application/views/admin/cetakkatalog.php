@@ -22,10 +22,12 @@
                 <br>
                 <center>
                     <?php
-                    $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
-                                        echo $generator->getBarcode($katalog['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
+                    // $generator = new Picqer\Barcode\BarcodeGeneratorHTML();
+                    //                     echo $generator->getBarcode($katalog['kodebuku'], $generator::TYPE_CODE_128, 1, 50);
                     ?>
                     <br>
+                    <img src="assets/image/<?php echo $katalog['qr'] ?>">
+                    ,br>
                     Kode buku : <?= $katalog['kodebuku']; ?>
                     <br>
                     Judul : <?= $katalog['judul']; ?>

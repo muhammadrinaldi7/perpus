@@ -27,7 +27,7 @@ class Buku_m extends CI_Model
         $data = $this->db->get('buku');
         return $data;
     }
-    public function tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok)
+    public function tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr)
     {
         $data = [
             'isbn' => $isbn,
@@ -45,8 +45,11 @@ class Buku_m extends CI_Model
             'kategori' => $kategori,
             'kodeklasifikasi' => $kodeklasifikasi,
             'stok' => $stok,
-			'tglmasuk' => date("Y-m-d")
+			'tglmasuk' => date("Y-m-d"),
+            'qr' => $qr
+
         ];
+        // var_dump($data);exit;
         $query = $this->db->insert('buku', $data);
         return $query;
     }

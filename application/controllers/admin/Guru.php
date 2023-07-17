@@ -52,10 +52,11 @@ class Guru extends CI_Controller
         $telp = $this->input->post('telp');
         $alamat = $this->input->post('alamat');
         $status = $this->input->post('status');
+        $email = $this->input->post('email');
         $foto = $_FILES['foto'];
         if (!file_exists($foto['tmp_name'])) {
             $foto = 'profildefault.jpg';
-            $input = $this->anggota->tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto);
+            $input = $this->anggota->tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto, $email);
         } else {
             $config['upload_path']          = './assets/data/anggota/';
             $config['allowed_types']        = 'gif|jpg|png';
@@ -66,7 +67,7 @@ class Guru extends CI_Controller
             $upload = $this->upload->do_upload('foto');
             if ($upload) {
                 $foto = $this->upload->data('file_name');
-                $input = $this->anggota->tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto);
+                $input = $this->anggota->tambahData($role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto,$email);
             } else {
                 $input = false;
             }
@@ -101,6 +102,7 @@ class Guru extends CI_Controller
         $telp = $this->input->post('telp');
         $alamat = $this->input->post('alamat');
         $status = $this->input->post('status');
+        $email = $this->input->post('email');
         $foto = $_FILES['foto'];
         if (!file_exists($foto['tmp_name'])) {
             $this->db->where('idanggota', $idanggota);
@@ -112,7 +114,7 @@ class Guru extends CI_Controller
                 $foto = 'profildefault.jpg';
             }
 
-            $input = $this->anggota->editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto);
+            $input = $this->anggota->editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto,$email);
         } else {
             $config['upload_path']          = './assets/data/anggota/';
             $config['allowed_types']        = 'gif|jpg|png';
@@ -129,7 +131,7 @@ class Guru extends CI_Controller
                     unlink('./assets/data/anggota/' . $oldimage['foto']);
                 }
                 $foto = $this->upload->data('file_name');
-                $input = $this->anggota->editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto);
+                $input = $this->anggota->editData($idanggota, $role, $kodeanggota, $identitas, $nama, $telp, $alamat, $status, $foto,$email);
             } else {
                 $input = false;
             }

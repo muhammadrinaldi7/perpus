@@ -70,7 +70,7 @@
                             <div class="card-body">
                                 <a href="<?= base_url('admin/katalog/haltambahdata'); ?>" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah data</a>
                                 <button type="submit" class="btn btn-warning"><i class="fas fa-print"></i> Cetak Barcode Katalog</button>
-								<button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success"><i class="fas fa-download"></i> Import</button>
+								<!-- <button type="button" data-toggle="modal" data-target="#myModal" class="btn btn-success"><i class="fas fa-download"></i> Import</button> -->
                             </div>
                         </div>
                     </div>
@@ -90,6 +90,7 @@
                                     <thead>
                                         <tr>
                                             <th><input type="checkbox" onclick="checkAll(this)"> No.</th>
+                                            <th>QR Code</th>
                                             <th>Kode Buku</th>
                                             <th>Tgl Masuk</th>
                                             <th>ISBN</th>
@@ -97,7 +98,9 @@
                                             <th>Penulis</th>
                                             <th>Penerbit</th>
                                             <th>Tahun</th>
+                                            <th>Cover Buku</th>
                                             <th>Stok</th>
+                                            <th>Rak</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -106,6 +109,7 @@
                                         foreach ($katalog as $data) : ?>
                                             <tr>
                                                 <td><input type="checkbox" name="idbuku[]" value="<?= $data['idbuku'] ?>"> <?= $i + 1; ?></td>
+                                                <td><img src="../assets/image/<?= $data['qr']; ?>" width="80px" height="80px"></td>
                                                 <td><?= $data['kodebuku']; ?></td>
                                                 <td><?= longdate_indo($data['tglmasuk']); ?></td>
                                                 <td><?= $data['isbn']; ?></td>
@@ -113,7 +117,9 @@
                                                 <td><?= $data['penulis']; ?></td>
                                                 <td><?= $data['penerbit']; ?></td>
                                                 <td><?= $data['thnterbit']; ?></td>
+                                                <td><img src="../assets/data/buku/<?= $data['sampul']; ?>" width="80px" height="80px"></td>
                                                 <td><?= $data['stok']; ?></td>
+                                                <td><?= $data['rak']; ?></td>
                                                 <td>
                                                     <a class="badge badge-primary" href="<?= base_url('admin/katalog/haleditdata/') . $data['idbuku']; ?>"><i class="fas fa-edit"></i></a>
                                                     <a class="badge badge-warning" target="_blank" href="<?= base_url('admin/katalog/cetakkartu/') . $data['idbuku']; ?>"><i class="fas fa-print"></i></a>

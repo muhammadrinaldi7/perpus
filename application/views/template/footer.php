@@ -97,7 +97,7 @@
         var formedit = $("#formedit");
         formedit.attr('action', '<?= base_url("admin/kelas/tambahdata"); ?>');
         var htmlform = '<div class="form-group">';
-        htmlform += '<div class="form-group">';
+    htmlform += '<div class="form-group">'
         htmlform += '<label for="kelas">Kelas</label>';
         htmlform += '<input type="text" name="kelas" class="form-control" required>';
         htmlform += '</div>';

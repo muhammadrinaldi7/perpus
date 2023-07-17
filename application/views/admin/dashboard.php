@@ -121,7 +121,7 @@
                     <!-- small box -->
                     <div class="small-box bg-warning">
                         <div class="inner">
-                            <h4>Rp <?= $totalkas; ?>,-</h4>
+                            <h4>Rp <?= number_format($totalkas,0,',','.'); ?>,-</h4>
 
                             <p>Kas</p>
                         </div>
