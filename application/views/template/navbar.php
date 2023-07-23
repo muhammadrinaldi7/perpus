@@ -138,6 +138,20 @@
                                 <p>Kas</p>
                             </a>
                         </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/denda/list_denda'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>List Denda</p>
+                            </a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/peminjaman/riwayat_peminjaman'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Riwayat Peminjaman</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">

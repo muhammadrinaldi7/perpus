@@ -30,7 +30,7 @@
                                 <div class="col-md-6">
                                     <label for="kdag">Kode Anggota</label>
                                     <div class="input-group">
-                                        <input type="text" name="kdag" id="kdag" placeholder="Tulis Kode Anggota atau arahkan barcode scanner" class="form-control">
+                                        <input type="text" name="kdag" id="kdag" placeholder="Tulis Kode Anggota" class="form-control">
                                         <span class="input-group-append">
                                             <button type="button" class="btn btn-success" id="cekanggota"><i class="fas fa-check"></i></button>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAnggota" id="btnmodalag"><i class="fas fa-ellipsis-h"></i></button>
@@ -40,7 +40,7 @@
                                 <div class="col-md-6">
                                     <label for="kdag">Kode Buku</label>
                                     <div class="input-group">
-                                        <input type="text" name="kdbk" id="kdbk" placeholder="Tulis Kode Buku atau arahkan barcode scanner" class="form-control">
+                                        <input type="text" name="kdbk" id="kdbk" placeholder="Tulis Kode Buku" class="form-control">
                                         <span class="input-group-append">
                                             <button type="button" class="btn btn-success" id="cekbuku" ><i class="fas fa-check"></i></button>
                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalBuku" id="btnmodalbk"><i class="fas fa-ellipsis-h"></i></button>
@@ -174,6 +174,7 @@
                             <th>No.</th>
                             <th>Kode Buku</th>
                             <th>Judul</th>
+                            <th>Stok</th>
                             <th>Pilih</th>
                         </tr>
                     </thead>
@@ -184,6 +185,7 @@
                                 <td><?= $i + 1; ?></td>
                                 <td><?= $data['kodebuku']; ?></td>
                                 <td><?= $data['judul']; ?></td>
+                                <td><?= $data['stok']; ?></td>
                                 <td><a href="#" class="badge badge-primary" onclick="pilihBuku('<?= $data['idbuku']; ?>')" data-dismiss="modal"><i class="fas fa-mouse-pointer"></i>Pilih</a></td>
                             </tr>
                         <?php $i++;

@@ -8,6 +8,13 @@ class Denda_m extends CI_Model
         $data = $this->db->get('biaya_denda');
         return $data;
     }
+
+    public function getAlllistdenda()
+    {
+        $data = $this->db->query("SELECT * FROM peminjaman p left join anggota a on p.kodeanggota=a.kodeanggota where tglpengembalian>tgldikembalikan");
+        return $data;
+    }
+
     public function getTelat()
     {
         $this->db->where('status', 'aktif');

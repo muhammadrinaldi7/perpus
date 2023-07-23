@@ -107,6 +107,10 @@
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="inputName">Deskripsi</label>
+                                            <textarea class="form-control" name="deskripsi" rows="3"></textarea>
+                                        </div>
                                         <label for="Sampul">Sampul</label>
                                         <br>
                                         <div class="input-group">

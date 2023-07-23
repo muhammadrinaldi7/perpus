@@ -27,7 +27,7 @@ class Buku_m extends CI_Model
         $data = $this->db->get('buku');
         return $data;
     }
-    public function tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr)
+    public function tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr,$deskripsi)
     {
         $data = [
             'isbn' => $isbn,
@@ -46,14 +46,15 @@ class Buku_m extends CI_Model
             'kodeklasifikasi' => $kodeklasifikasi,
             'stok' => $stok,
 			'tglmasuk' => date("Y-m-d"),
-            'qr' => $qr
+            'qr' => $qr,
+            'deskripsi' => $deskripsi
 
         ];
         // var_dump($data);exit;
         $query = $this->db->insert('buku', $data);
         return $query;
     }
-    public function editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok)
+    public function editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok, $deskripsi)
     {
         $this->db->set('isbn', $isbn);
         $this->db->set('judul', $judul);
@@ -70,6 +71,7 @@ class Buku_m extends CI_Model
         $this->db->set('kategori', $kategori);
         $this->db->set('kodeklasifikasi', $kodeklasifikasi);
         $this->db->set('stok', $stok);
+        $this->db->set('deskripsi', $deskripsi);
         $this->db->where('idbuku', $idbuku);
         $query = $this->db->update('buku');
         return $query;

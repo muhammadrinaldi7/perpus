@@ -31,13 +31,17 @@ class Auth extends CI_Controller
         require 'PHPMailer/PHPMailerAutoload.php';
         $mail = new PHPMailer;
         $now=date('Y-m-d');
-        $query=$this->db->query("SELECT * FROM peminjaman where tglpengembalian>='$now'")->result();
+        $query=$this->db->query("SELECT * FROM peminjaman where tgldikembalikan>='$now'")->result();
         foreach ($query as $key) {
             $idpinjam=$key->idpinjam;
-            $cari=$this->db->query("SELECT email from peminjaman p left join anggota a on p.kodeanggota=a.kodeanggota where idpinjam='$idpinjam'")->row();
+            $cari=$this->db->query("SELECT * from peminjaman p left join anggota a on p.kodeanggota=a.kodeanggota left join buku b on p.idbuku=b.idbuku where idpinjam='$idpinjam'")->row();
 
             $email=$cari->email;
-            $jatuh_tempo=$key->tglpengembalian;
+            $judul=$cari->judul;
+            $qty=$cari->qty;
+            $tglpinjam=$cari->tglpinjam;
+            $tgldikembalikan=$cari->tgldikembalikan;
+            $jatuh_tempo=$key->tgldikembalikan;
             $tgl1 = new DateTime($jatuh_tempo);
             $tgl2 = new DateTime($now);
             $d = $tgl2->diff($tgl1)->days;
@@ -65,7 +69,7 @@ class Auth extends CI_Controller
         $mail->Subject = 'Perpustakaan SMKN 2 Pelaihari';
         $mail->isHTML(true);
 
-        $lap="<h1><b>Besok hari jatuh tempo pengembalian Buku</b></h1>";
+        $lap="<h1><b>Besok hari jatuh tempo pengembalian Buku. Buku yang dipinjam adalah ".strtoupper($judul)." dengan jumlah ".$qty.". Tanggal peminjaman ".$tglpinjam." dan tanggal pengembalian ".$tgldikembalikan."</b></h1><br><br><br><br><br><br><p>*jam operasional perpustakaan dari pukul 08.00 - 15.00 WITA.</p>";
         $mail->Body = $lap;
         // $tambah = mysqli_query($con, "UPDATE surat_keluar SET status='Terima' where id_surat_keluar='$id_surat_keluar'");
         if (!$mail->send()) {

@@ -29,6 +29,7 @@
                                             <th>Penerbit</th>
                                             <th>Tahun</th>
                                             <th>Cover Buku</th>
+                                            <th>Deskripsi</th>
                                             <th>Stok</th>
                                             <th>Rak</th>
                                         </tr>
@@ -47,6 +48,7 @@
                                                 <td><?= $data['penerbit']; ?></td>
                                                 <td><?= $data['thnterbit']; ?></td>
                                                 <td><a href="assets/data/buku/<?= $data['sampul']; ?>" target="_blank"><img src="assets/data/buku/<?= $data['sampul']; ?>" width="80px" height="80px"></a></td>
+                                                <td><?= $data['deskripsi']; ?></td>
                                                 <td><?= $data['stok']; ?></td>
                                                 <td><?= $data['rak']; ?></td>
                                             </tr>

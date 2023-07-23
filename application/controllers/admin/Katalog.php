@@ -77,6 +77,7 @@ class Katalog extends CI_Controller
         $kategori = $this->input->post('kategori');
         $kodeklasifikasi = $this->input->post('kodeklasifikasi');
         $stok = $this->input->post('stok');
+        $deskripsi = $this->input->post('deskripsi');
         $sampul = $_FILES['sampul'];
 require "phpqrcode/qrlib.php"; 
  $penyimpanan = "assets/image/";
@@ -89,7 +90,7 @@ $nama_qr=md5($isi);
   // var_dump($qr);exit;
         if (!file_exists($sampul['tmp_name'])) {
             $sampul = 'noimage.jpg';
-            $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr);
+            $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr,$deskripsi);
         } else {
             $config['upload_path']          = './assets/data/buku/';
             $config['allowed_types']        = 'gif|jpg|png';
@@ -100,7 +101,7 @@ $nama_qr=md5($isi);
             $upload = $this->upload->do_upload('sampul');
             if ($upload) {
                 $sampul = $this->upload->data('file_name');
-                $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr);
+                $input = $this->buku->tambahData($isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$qr,$deskripsi);
             } else {
                 $input = false;
             }
@@ -145,6 +146,7 @@ $nama_qr=md5($isi);
         $kategori = $this->input->post('kategori');
         $kodeklasifikasi = $this->input->post('kodeklasifikasi');
         $stok = $this->input->post('stok');
+        $deskripsi = $this->input->post('deskripsi');
         $sampul = $_FILES['sampul'];
         if (!file_exists($sampul['tmp_name'])) {
             $this->db->where('idbuku', $idbuku);
@@ -156,7 +158,7 @@ $nama_qr=md5($isi);
                 $sampul = 'noimage.jpg';
             }
 
-            $input = $this->buku->editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok);
+            $input = $this->buku->editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok, $deskripsi);
         } else {
             $config['upload_path']          = './assets/data/buku/';
             $config['allowed_types']        = 'gif|jpg|png';
@@ -173,7 +175,7 @@ $nama_qr=md5($isi);
                     unlink('./assets/data/buku/' . $oldimage['sampul']);
                 }
                 $sampul = $this->upload->data('file_name');
-                $input = $this->buku->editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok);
+                $input = $this->buku->editData($idbuku, $isbn, $judul, $penulis, $penerbit, $thnterbit, $tempatterbit, $halaman, $tebal, $rak, $sampul, $kodebuku, $sumberbuku, $kategori, $kodeklasifikasi, $stok,$deskripsi);
             } else {
                 $input = false;
             }

@@ -100,6 +100,7 @@
                                             <th>Tahun</th>
                                             <th>Cover Buku</th>
                                             <th>Stok</th>
+                                            <th>Deskripsi</th>
                                             <th>Rak</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -119,6 +120,7 @@
                                                 <td><?= $data['thnterbit']; ?></td>
                                                 <td><img src="../assets/data/buku/<?= $data['sampul']; ?>" width="80px" height="80px"></td>
                                                 <td><?= $data['stok']; ?></td>
+                                                <td><?= $data['deskripsi']; ?></td>
                                                 <td><?= $data['rak']; ?></td>
                                                 <td>
                                                     <a class="badge badge-primary" href="<?= base_url('admin/katalog/haleditdata/') . $data['idbuku']; ?>"><i class="fas fa-edit"></i></a>

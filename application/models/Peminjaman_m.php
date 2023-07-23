@@ -13,6 +13,17 @@ class Peminjaman_m extends CI_Model
         $data = $this->db->get('peminjaman');
         return $data;
     }
+    public function getPeminjamanFull()
+    {
+        $this->db->select('idpinjam, kodepinjam, peminjaman.kodeanggota, peminjaman.idanggota, anggota.kodeanggota, identitas, nama,telp, alamat,anggota.status as status, buku.kodebuku, buku.idbuku, peminjaman.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, tglpengembalian, qty, judul');
+        $this->db->where('peminjaman.status', 'dipinjam');
+        $this->db->join('anggota', 'peminjaman.idanggota=anggota.idanggota','left');
+        $this->db->join('buku', 'peminjaman.idbuku=buku.idbuku','left');
+        $this->db->group_by('kodepinjam');
+        $this->db->order_by('idpinjam', 'ASC');
+        $data = $this->db->get('peminjaman');
+        return $data;
+    }
     public function getPengembalian()
     {
         $this->db->select('peminjaman.idpinjam as idpinjam, peminjaman.kodepinjam as kodepinjam, peminjaman.kodeanggota, peminjaman.idanggota, anggota.kodeanggota, identitas, nama,telp, alamat,anggota.status as status, kodebuku, idbuku, peminjaman.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, tglpengembalian, peminjaman.qty as qty, SUM(biaya) as denda');

@@ -9,6 +9,7 @@ class Denda extends CI_Controller
         parent::__construct();
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Denda_m', 'denda');
+        $this->load->model('Peminjaman_m', 'peminjaman');
         cekstatuslogin();
     }
     public function index()
@@ -64,5 +65,17 @@ class Denda extends CI_Controller
             $this->session->set_tempdata('message', 'hapus gagal', 3);
             redirect(base_url('admin/denda'));
         }
+    }
+
+    public function list_denda()
+    {
+        $data['setting'] = $this->setting;
+        $data['title'] = 'List Denda';
+        $data['listdenda'] = $this->denda->getAlllistdenda()->result_array();
+        // var_dump($data['listdenda']);exit;
+        $this->load->view('template/header', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('admin/listdenda', $data);
+        $this->load->view('template/footer');
     }
 }

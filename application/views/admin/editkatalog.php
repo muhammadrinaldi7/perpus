@@ -114,8 +114,13 @@
                                                 <?php endforeach; ?>
                                             </select>
                                         </div>
+
+                                        <div class="form-group">
+                                            <label for="inputName">Deskripsi</label>
+                                            <textarea class="form-control" value="<?= $katalog['deskripsi']; ?>" name="deskripsi" rows="3"></textarea>
+                                        </div>
                                         <label for="Sampul">Sampul</label>
-                                        <img src="<?= base_url('assets/data/buku/') . $katalog['sampul']; ?>" width=100%">
+                                        <img src="<?= base_url('assets/data/buku/') . $katalog['sampul']; ?>" width="100%">
                                         <br>
                                         <div class="input-group mt-2">
                                             <div class="custom-file">

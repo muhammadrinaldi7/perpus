@@ -19,7 +19,7 @@ class Peminjaman extends CI_Controller
     {
         $data['setting'] = $this->setting;
         $data['title'] = $this->title;
-        $data['peminjaman'] = $this->peminjaman->getPeminjaman()->result_array();
+        $data['peminjaman'] = $this->peminjaman->getPeminjamanFull()->result_array();
         $data['denda'] = $this->denda->getTelat()->row_array();
         $this->load->view('template/header', $data);
         $this->load->view('template/navbar', $data);
@@ -195,5 +195,17 @@ class Peminjaman extends CI_Controller
             $this->session->set_tempdata('message', 'hapus gagal', 3);
             redirect(base_url('admin/peminjaman'));
         }
+    }
+
+    public function riwayat_peminjaman()
+    {
+        $data['setting'] = $this->setting;
+        $data['title'] = 'Riwayat Peminjaman';
+        $data['peminjaman'] = $this->peminjaman->getPeminjamanFull()->result_array();
+        // $data['denda'] = $this->denda->getTelat()->row_array();
+        $this->load->view('template/header', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('admin/riwayat_peminjaman', $data);
+        $this->load->view('template/footer');
     }
 }
