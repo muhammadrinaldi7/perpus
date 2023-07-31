@@ -40,7 +40,7 @@
             </table>
     <center><h2>Data Kas</h2></center>
     <label class="">TOTAL KAS : Rp <?= $totalkas; ?>,-</label>
-    <table style="border: 1px solid;border-collapse: collapse;" width="100%">
+    <table border="1" style="border: 1px solid;border-collapse: collapse;" width="100%">
         <thead>
             <tr>
                 <th align="left">No</th>

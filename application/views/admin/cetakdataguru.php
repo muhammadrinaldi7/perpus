@@ -39,16 +39,16 @@
                 </tr>
             </table>
     <center><h2>Data Guru</h2></center>
-    <table style="border: 1px solid;border-collapse: collapse;" width="100%">
+    <table border="1" style="border: 1px solid;border-collapse: collapse;" width="100%">
         <thead>
             <tr>
-                <th align="left">No</th>
-                <th align="left">Kode Anggota</th>
-                <th align="left">NIP</th>
-                <th align="left">Nama</th>
-                <th align="left">No.Hp</th>
-                <th align="left">Alamat</th>
-                <th align="left">Jabatan</th>
+                <th align="center">No</th>
+                <th align="center">Kode Anggota</th>
+                <th align="center">NIP</th>
+                <th align="center">Nama</th>
+                <th align="center">No.Hp</th>
+                <th align="center">Alamat</th>
+                <th align="center">Jabatan</th>
             </tr>
         </thead>
         <tbody>
@@ -57,7 +57,7 @@
             ?>
             <?php foreach ($guru as $data) : ?>
             <tr>
-                <td><?= $no++; ?></td>
+                <td  align="center"><?= $no++; ?></td>
                 <td><?= $data['kodeanggota']; ?></td>
                 <td><?= $data['identitas']; ?></td>
                 <td><?= $data['nama']; ?></td>

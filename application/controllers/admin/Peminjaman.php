@@ -29,7 +29,14 @@ class Peminjaman extends CI_Controller
     public function cetakdatapinjaman()
     {
 
-        $data['p'] = $this->peminjaman->getPeminjaman()->result_array();
+        if (isset($_POST['cetak_semua'])) {
+            $data['p'] = $this->peminjaman->getPeminjaman()->result_array();
+        }elseif (isset($_POST['cetak_tanggal'])) {
+            $dari=$_POST['dari'];
+            $sampai=$_POST['sampai'];
+            $data['p'] = $this->db->query("SELECT idpinjam, kodepinjam, p.kodeanggota, p.idanggota, a.kodeanggota, identitas, nama,telp, alamat,a.status as status, kodebuku, idbuku, p.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, tglpengembalian, qty FROM peminjaman p left join anggota a on p.idanggota=a.idanggota where p.status='dipinjam' and tglpinjam between '$dari' and '$sampai' order by idpinjam desc")->result_array();
+        }
+                
         $data['denda'] = $this->denda->getTelat()->row_array();
         // var_dump($data['p']);exit;
         $data['setting'] = $this->setting;

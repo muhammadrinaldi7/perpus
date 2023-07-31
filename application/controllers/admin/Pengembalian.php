@@ -26,8 +26,13 @@ class Pengembalian extends CI_Controller
     }
     public function cetakdatapengembalian()
     {
-
+        if (isset($_POST['cetak_semua'])) {
         $data['p'] = $this->peminjaman->getPengembalian()->result_array();
+        }elseif (isset($_POST['cetak_tanggal'])) {
+            $dari=$_POST['dari'];
+            $sampai=$_POST['sampai'];
+            $data['p'] = $this->db->query("SELECT p.idpinjam as idpinjam, p.kodepinjam as kodepinjam, p.kodeanggota, p.idanggota, a.kodeanggota, identitas, nama,telp, alamat,a.status as status, kodebuku, idbuku, p.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, tglpengembalian, p.qty as qty, SUM(biaya) as denda FROM peminjaman p left join anggota a on p.idanggota=a.idanggota left join denda d on d.idpinjam=p.idpinjam where p.status='dikembalikan' and tglpengembalian between '$dari' and '$sampai' group by kodepinjam order by idpinjam desc")->result_array();
+        }
         // var_dump($data['p']);exit;
         $data['setting'] = $this->setting;
         // $this->load->view('admin/cetakbanyakag', $data);

@@ -82,6 +82,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
@@ -191,6 +192,59 @@
                             <a href="<?= base_url('admin/katalog'); ?>" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Katalog</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-folder"></i>
+                        <p>
+                            Laporan
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/guru'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Guru</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/siswa'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Siswa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/pengunjung'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Pengunjung</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/peminjaman'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Peminjaman</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/pengembalian'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Pengembalian</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/kas'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Kas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/laporan/katalog'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Data Katalog</p>
                             </a>
                         </li>
                     </ul>

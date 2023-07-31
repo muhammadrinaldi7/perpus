@@ -5,7 +5,7 @@ class Sumber_m extends CI_Model
 {
     public function getAll()
     {
-        $this->db->order_by('idsumber', 'ASC');
+        $this->db->order_by('idsumber', 'DESC');
         $data = $this->db->get('sumber_buku');
         return $data;
     }

@@ -39,7 +39,7 @@
                 </tr>
             </table>
     <center><h2>Data Pengunjung</h2></center>
-    <table style="border: 1px solid;border-collapse: collapse;" width="100%">
+    <table border="1" style="border: 1px solid;border-collapse: collapse;" width="100%">
         <thead>
             <tr>
                 <th>No.</th>

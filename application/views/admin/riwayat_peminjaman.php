@@ -39,16 +39,28 @@
                                         <th>Nama</th>
                                         <th>Judul</th>
                                         <th>Jumlah</th>
+                                        <th>Tgl Pinjam</th>
+                                        <th>Tgl Kembali</th>
+                                        <th>Lama Pinjam</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <?php $i = 0;
-                                    foreach ($peminjaman as $data) : ?>
+                                    foreach ($peminjaman as $data) :
+                                        $tgl1 = date_create($data['tglpengembalian']);
+                    $tgl2 = date_create($data['tglpinjam']);
+                    $beda = date_diff($tgl2, $tgl1);
+                    $diff = $beda->d;
+                                     ?>
                                         <tr>
                                             <td><?= $i + 1; ?></td>
                                             <td><?= $data['nama']; ?></td>
                                             <td><?= $data['judul']; ?></td>
                                             <td><?= $data['qty']; ?></td>
+                                            <td><?= $data['tglpinjam']; ?></td>
+                                            <td><?= $data['tglpengembalian']; ?></td>
+                                            <td><?= $diff.' hari'; ?></td>
+
                                         </tr>
                                     <?php $i++;
                                     endforeach; ?>

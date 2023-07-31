@@ -174,18 +174,24 @@
                             <th>No.</th>
                             <th>Kode Buku</th>
                             <th>Judul</th>
-                            <th>Stok</th>
+                            <th>Stok Tersedia</th>
+                            <th>Jumlah Buku</th>
                             <th>Pilih</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php $i = 0;
-                        foreach ($buku as $data) : ?>
+                        foreach ($buku as $data) :
+                            $idbuku=$data['idbuku'];
+                            $tot=$this->db->query("SELECT sum(qty) as qty from peminjaman where idbuku='$idbuku'")->row_array();
+                            $akhir=$tot['qty']+$data['stok'];
+                            ?>
                             <tr>
                                 <td><?= $i + 1; ?></td>
                                 <td><?= $data['kodebuku']; ?></td>
                                 <td><?= $data['judul']; ?></td>
-                                <td><?= $data['stok']; ?></td>
+                                <td><badge class="badge badge-success"><?= $data['stok']; ?></badge></td>
+                                <td><?= $akhir; ?></td>
                                 <td><a href="#" class="badge badge-primary" onclick="pilihBuku('<?= $data['idbuku']; ?>')" data-dismiss="modal"><i class="fas fa-mouse-pointer"></i>Pilih</a></td>
                             </tr>
                         <?php $i++;

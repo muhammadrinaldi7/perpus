@@ -17,14 +17,14 @@ class Anggota_m extends CI_Model
     public function getGuru()
     {
         $this->db->where('role', 'guru');
-        $this->db->order_by('idanggota', 'ASC');
+        $this->db->order_by('idanggota', 'DESC');
         $data = $this->db->get('anggota');
         return $data;
     }
     public function getSiswa()
     {
         $this->db->where('role', 'siswa');
-        $this->db->order_by('idanggota', 'ASC');
+        $this->db->order_by('idanggota', 'DESC');
         $data = $this->db->get('anggota');
         return $data;
     }

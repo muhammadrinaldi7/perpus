@@ -79,9 +79,11 @@ class Katalog extends CI_Controller
         $stok = $this->input->post('stok');
         $deskripsi = $this->input->post('deskripsi');
         $sampul = $_FILES['sampul'];
+        $cek=$this->db->query("SELECT idbuku from buku order by idbuku desc")->row_array();
+        $idbukuu=$cek['idbuku']+1;
 require "phpqrcode/qrlib.php"; 
  $penyimpanan = "assets/image/";
-$isi=$kodebuku.'/'.$judul;
+$isi="http://localhost/perpus/admin/katalog/hallihatdata/".$idbukuu;
 $nama_qr=md5($isi);
 // var_dump($nama_qr);exit;
   QRcode::png($isi, $penyimpanan.$nama_qr.'.png', QR_ECLEVEL_L, 10, 5); 
@@ -319,4 +321,19 @@ $nama_qr=md5($isi);
 		}
 		header('location: /perpus/admin/katalog'); 
 	}
+    public function hallihatdata($idbuku)
+    {
+        $data['setting'] = $this->setting;
+        $data['title'] = "Katalog";
+        $data['katalog'] = $this->db->query("SELECT * FROM buku b left join klasifikasi k on b.kodeklasifikasi=k.kodeklasifikasi")->row_array();
+        $data['klasifikasi'] = $this->klasifikasi->getAll()->result_array();
+        $data['kategori'] = $this->kategori->getAll()->result_array();
+        $data['sumber'] = $this->sumber->getAll()->result_array();
+        $data['rak'] = $this->rak->getAll()->result_array();
+
+        $this->load->view('template/header', $data);
+        $this->load->view('template/navbar', $data);
+        $this->load->view('admin/lihatkatalog', $data);
+        $this->load->view('template/footer');
+    }
 }

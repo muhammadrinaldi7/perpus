@@ -5,6 +5,7 @@ class Presensi_m extends CI_Model
 {
     public function getAll()
     {
+        $this->db->order_by("idpresensi","DESC");
         $data = $this->db->get('presensi');
         return $data;
     }

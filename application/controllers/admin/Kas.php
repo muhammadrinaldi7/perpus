@@ -15,7 +15,23 @@ class Kas extends CI_Controller
     {
         $data['setting'] = $this->setting;
         $data['title'] = $this->title;
-        $data['kas'] = $this->kas->getAll()->result_array();
+        if (isset($_POST['cari'])) {
+            $jenis_kas=$_POST['jenis_kas'];
+            // var_dump($jenis_kas);exit;
+            if ($jenis_kas=='Kas Masuk') {
+                $jenis='masuk';
+                $data['kas']=$this->db->query("SELECT * FROM kas where tipe='$jenis'")->result_array();
+            }elseif($jenis_kas=='Kas Keluar'){
+                $jenis='keluar';
+                $data['kas']=$this->db->query("SELECT * FROM kas where tipe='$jenis'")->result_array();
+            }else{
+                $data['kas']=$this->db->query("SELECT * FROM kas")->result_array();
+            }
+            
+        }else{
+
+        $data['kas'] = $this->kas->getAll()->result_array();   
+        }
         $data['totalkas'] = $this->kas->totalKas();
         $this->load->view('template/header', $data);
         $this->load->view('template/navbar', $data);
@@ -24,8 +40,18 @@ class Kas extends CI_Controller
     }
     public function cetakdatakas()
     {
-
-        $data['kas'] = $this->kas->getAll()->result_array();
+        $jenis_kas=$_POST['jenis_kas'];
+        if ($jenis_kas=='Kas Masuk') {
+            $jenis='masuk';
+            $data['kas'] = $this->kas->getAllcetak($jenis)->result_array();
+        }elseif ($jenis_kas=='Kas Keluar') {
+            $jenis='keluar';
+            $data['kas'] = $this->kas->getAllcetak($jenis)->result_array();
+        }else{
+            $data['kas'] = $this->kas->getAll()->result_array();
+        }
+        
+        // var_dump($data['kas']);exit;
         $data['totalkas'] = $this->kas->totalKas();
         // var_dump($data['p']);exit;
         $data['setting'] = $this->setting;

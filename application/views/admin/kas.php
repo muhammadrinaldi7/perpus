@@ -35,11 +35,28 @@
                     <div class="card">
                         <div class="card-header">
                             <h3 class="card-title">
-                                Data <?= $title; ?>
+                                Data <?= $title; ?> Masuk dan Keluar
                             </h3>
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
+                            <form action="<?php echo base_url('admin/kas'); ?>" method="POST">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <select class="form-control" name="jenis_kas" required="">
+                                            <option value="All">--Pilih--</option>
+                                            <option>Kas Masuk</option>
+                                            <option>Kas Keluar</option>
+                                            
+                                        </select>
+                                        
+                                    </div>
+                                    <div class="col-md-1">
+                                        <input type="submit" name="cari" class="btn btn-primary" value="Cari">
+                                    </div>
+                                </div>
+                            </form>
+                            <br>
                             <a href="<?= base_url('admin/kas/cetakdatakas'); ?>" class="btn btn-secondary" target="_blank"><i class="fa fa-print"></i> Pdf</a>
                                 <br>
                                 <br>

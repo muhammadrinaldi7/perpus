@@ -38,9 +38,7 @@
                         </div>
                         <!-- /.card-header -->
                         <div class="card-body">
-                            <a href="<?= base_url('admin/presensi/cetakdatapengunjung'); ?>" class="btn btn-secondary" target="_blank"><i class="fa fa-print"></i> Pdf</a>
-                                <br>
-                                <br>
+                            
                             <table id="datatableperpus" class="table table-bordered w-100 table-striped">
                                 <thead>
                                     <tr>

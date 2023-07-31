@@ -5,6 +5,7 @@ class Buku_m extends CI_Model
 {
     public function getAll()
     {
+        $this->db->order_by('idbuku', 'DESC');
         $data = $this->db->get('buku');
         return $data;
     }

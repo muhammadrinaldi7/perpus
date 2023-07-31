@@ -49,14 +49,21 @@ class Auth extends CI_Controller
             // var_dump($no_pinjaman);exit;
             // var_dump($cari->id_role);exit;
             if ($d<=1) {
-        $mail->isSMTP();
-        $mail->Host = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-          //email dan password yang sudah tervalidasi oleh gmail
-        $mail->Username = 'anangafh@gmail.com';
-        $mail->Password = 'hkfdjkigixvxzxar';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port = 587;
+        // $mail->isSMTP();
+        // $mail->Host = 'smtp.gmail.com';
+        // $mail->SMTPAuth = true;
+        //   //email dan password yang sudah tervalidasi oleh gmail
+        // $mail->Username = 'anangafh@gmail.com';
+        // $mail->Password = 'hkfdjkigixvxzxar';
+        // $mail->SMTPSecure = 'tls';
+        // $mail->Port = 587;
+
+$mail->isSMTP();
+$mail->Host = 'sandbox.smtp.mailtrap.io';
+$mail->SMTPAuth = true;
+$mail->Port = 2525;
+$mail->Username = 'b338c2d127d6fd';
+$mail->Password = 'da53d481721fb8';
       
         $mail->setFrom('anangafh@gmail.com', 'Perpustakaan');
         $mail->addReplyTo('anangafh@gmail.com', 'Perpustakaan');

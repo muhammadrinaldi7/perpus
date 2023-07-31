@@ -83,9 +83,7 @@
                             </div>
                             <!-- /.card-header -->
                             <div class="card-body">
-                                <a href="<?= base_url('admin/katalog/cetakdatakatalog'); ?>" class="btn btn-secondary" target="_blank"><i class="fa fa-print"></i> Pdf</a>
-                                <br>
-                                <br>
+                               
                                 <table id="datatableperpus" class="table table-bordered datatable w-100 table-striped no-footer">
                                     <thead>
                                         <tr>
@@ -99,7 +97,8 @@
                                             <th>Penerbit</th>
                                             <th>Tahun</th>
                                             <th>Cover Buku</th>
-                                            <th>Stok</th>
+                                            <th>Stok Tersedia</th>
+                                            <th>Jumlah Buku</th>
                                             <th>Deskripsi</th>
                                             <th>Rak</th>
                                             <th>Aksi</th>
@@ -107,7 +106,11 @@
                                     </thead>
                                     <tbody>
                                         <?php $i = 0;
-                                        foreach ($katalog as $data) : ?>
+                                        foreach ($katalog as $data) : 
+                                            $idbuku=$data['idbuku'];
+                            $tot=$this->db->query("SELECT sum(qty) as qty from peminjaman where idbuku='$idbuku'")->row_array();
+                            $akhir=$tot['qty']+$data['stok'];
+                            ?>
                                             <tr>
                                                 <td><input type="checkbox" name="idbuku[]" value="<?= $data['idbuku'] ?>"> <?= $i + 1; ?></td>
                                                 <td><img src="../assets/image/<?= $data['qr']; ?>" width="80px" height="80px"></td>
@@ -120,11 +123,13 @@
                                                 <td><?= $data['thnterbit']; ?></td>
                                                 <td><img src="../assets/data/buku/<?= $data['sampul']; ?>" width="80px" height="80px"></td>
                                                 <td><?= $data['stok']; ?></td>
+                                                <td><?= $akhir; ?></td>
                                                 <td><?= $data['deskripsi']; ?></td>
                                                 <td><?= $data['rak']; ?></td>
                                                 <td>
                                                     <a class="badge badge-primary" href="<?= base_url('admin/katalog/haleditdata/') . $data['idbuku']; ?>"><i class="fas fa-edit"></i></a>
                                                     <a class="badge badge-warning" target="_blank" href="<?= base_url('admin/katalog/cetakkartu/') . $data['idbuku']; ?>"><i class="fas fa-print"></i></a>
+                                                    <a class="badge badge-success" href="<?= base_url('admin/katalog/hallihatdata/') . $data['idbuku']; ?>"><i class="fas fa-eye"></i></a>
                                                 </td>
                                             </tr>
                                         <?php $i++;

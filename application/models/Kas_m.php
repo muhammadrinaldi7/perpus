@@ -9,6 +9,37 @@ class Kas_m extends CI_Model
         return $data;
     }
 
+    public function getAllcetak($jenis_kas)
+    {
+        $this->db->where('tipe',$jenis_kas);
+        $data = $this->db->get('kas');
+        return $data;
+    }
+public function totalKascetak()
+    {
+        $this->db->where('tipe', 'masuk');
+        $kas = $this->db->get('kas')->result_array();
+        $nominal = 0;
+        $out = 0;
+        if ($kas != '') {
+            foreach ($kas as $data) {
+                $nominal += $data['nominal'];
+            }
+            $this->db->where('tipe', 'keluar');
+            $keluar = $this->db->get('kas')->result_array();
+            if ($keluar != '') {
+                foreach ($keluar as $data) {
+                    $out += $data['nominal'];
+                }
+                $total = $nominal - $out;
+            } else {
+                $total = $nominal;
+            }
+        } else {
+            $total = 0;
+        }
+        return $total;
+    }
     public function totalKas()
     {
         $this->db->where('tipe', 'masuk');
