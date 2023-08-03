@@ -32,6 +32,7 @@
                                             <th>Deskripsi</th>
                                             <th>Stok</th>
                                             <th>Rak</th>
+                                            <th>Detail</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -51,6 +52,7 @@
                                                 <td><?= $data['deskripsi']; ?></td>
                                                 <td><?= $data['stok']; ?></td>
                                                 <td><?= $data['rak']; ?></td>
+                                                <td><a class="btn btn-success" href="<?= base_url('home/detail/') . $data['idbuku']; ?>"><i class="fa fa-eye"></i></a></td>
                                             </tr>
                                         <?php $i++;
                                         endforeach; ?>

@@ -83,7 +83,7 @@ class Katalog extends CI_Controller
         $idbukuu=$cek['idbuku']+1;
 require "phpqrcode/qrlib.php"; 
  $penyimpanan = "assets/image/";
-$isi="http://localhost/perpus/admin/katalog/hallihatdata/".$idbukuu;
+$isi="http://localhost/perpus/home/detail/".$idbukuu;
 $nama_qr=md5($isi);
 // var_dump($nama_qr);exit;
   QRcode::png($isi, $penyimpanan.$nama_qr.'.png', QR_ECLEVEL_L, 10, 5); 

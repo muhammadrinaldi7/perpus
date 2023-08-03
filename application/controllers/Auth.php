@@ -76,7 +76,26 @@ $mail->Password = 'da53d481721fb8';
         $mail->Subject = 'Perpustakaan SMKN 2 Pelaihari';
         $mail->isHTML(true);
 
-        $lap="<h1><b>Besok hari jatuh tempo pengembalian Buku. Buku yang dipinjam adalah ".strtoupper($judul)." dengan jumlah ".$qty.". Tanggal peminjaman ".$tglpinjam." dan tanggal pengembalian ".$tgldikembalikan."</b></h1><br><br><br><br><br><br><p>*jam operasional perpustakaan dari pukul 08.00 - 15.00 WITA.</p>";
+        $lap="<h3 style='color:blue;'><b>Besok hari jatuh tempo pengembalian Buku. Berikut data buku yang dipinjam:<br>
+        <table>
+        <thead>
+        <tr>
+        <td>Judul</td>
+        <td>:</td>
+        <td>".strtoupper($judul)."</td>
+        </tr>
+        <tr>
+        <td>Tanggal Pinjam</td>
+        <td>:</td>
+        <td>".$tglpinjam."</td>
+        </tr>
+        <tr>
+        <td>Tanggal Kembali</td>
+        <td>:</td>
+        <td>".$tgldikembalikan."</td>
+        </tr>
+        <thead>
+        </table></b></h3><br><br><br><br><br><br><p>*jam operasional perpustakaan dari pukul 08.00 - 15.00 WITA.</p>";
         $mail->Body = $lap;
         // $tambah = mysqli_query($con, "UPDATE surat_keluar SET status='Terima' where id_surat_keluar='$id_surat_keluar'");
         if (!$mail->send()) {
