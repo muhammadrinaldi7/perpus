@@ -39,7 +39,7 @@
 	<!-- Navigation-->
 	<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav" style="background-color: black;">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="<?= base_url()?>assets/img/logo.png"><img src="<?= base_url()?>assets/image/logo.png" width="50px" alt="Perpustakaan" /></a>
+			<a class="navbar-brand js-scroll-trigger" href="<?= base_url()?>assets/img/logo.png"><img src="<?= base_url()?>assets/image/1672156695647.png" width="50px" alt="Perpustakaan" /></a>
 			<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
 				data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
 				aria-label="Toggle navigation">

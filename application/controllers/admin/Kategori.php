@@ -10,6 +10,7 @@ class Kategori extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Kategori_m', 'kategori');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

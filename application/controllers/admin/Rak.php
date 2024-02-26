@@ -10,6 +10,7 @@ class Rak extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Rak_m', 'rak');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

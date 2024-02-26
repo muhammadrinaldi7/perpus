@@ -116,17 +116,18 @@ foreach ($pinjam as $data) :
                                     </table>
                                     <?php
                                     $tgl1 = preg_replace('/[^0-9]/', '', $dt['tgldikembalikan']);
-                                    $tgl2 = date('Ymd');
+                                    $tgl2 = preg_replace('/[^0-9]/', '', $dt['tglpengembalian']);;
                                     $diff = $tgl2 - $tgl1;
                                     if ($diff > 0) {
                                         echo "<b>Keterangan Denda : </b><br> Telat Dikembalikan " . $diff . " hari <br>";
                                         $jml = 0;
                                         $bb = $this->peminjaman->getDetail($dt['kodepinjam'])->result_array();
+                                        var_dump($denda['biaya']);
                                         foreach ($bb as $b) {
                                             $d = $denda['biaya'] * $diff;
                                             $jml += $d * $b['qty'];
                                         }
-                                        echo '<b class="text-danger">Denda yang harus dibayar : Rp ' . $jml . ',-</b>';
+                                        echo '<b class="text-danger">Denda yang harus dibayar : Rp ' . number_format($jml, 2, ",", ".") . ',-</b>';
                                         echo '<br>untuk ' . count($bb) . ' buku';
                                     } else {
                                         echo "<b>Keterangan Denda :</b> Tidak ada denda";

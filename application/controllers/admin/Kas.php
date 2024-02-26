@@ -10,6 +10,7 @@ class Kas extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Kas_m', 'kas');
         cekstatuslogin();
+        
     }
     public function index()
     {

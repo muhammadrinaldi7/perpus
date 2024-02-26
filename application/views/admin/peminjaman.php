@@ -25,7 +25,9 @@
                 <div class="col-lg-12">
                     <div class="card card-danger">
                         <div class="card-body">
+                            <?php if($this->session->userdata('role')=='admin'){ ?>
                             <a href="<?= base_url('admin/peminjaman/haltambahdata'); ?>" class="btn btn-primary"><i class="fas fa-plus-circle"></i> Tambah data</a>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -52,8 +54,10 @@
                                         <th>Pinjam</th>
                                         <th>Balik</th>
                                         <th>Status</th>
+                                        <?php if ($this->session->userdata('role')=='admin'){?>
                                         <th>Denda</th>
                                         <th>Aksi</th>
+                                        <?php } ?>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,6 +72,7 @@
                                             <td><?= $data['tglpinjam']; ?></td>
                                             <td><?= $data['tgldikembalikan']; ?></td>
                                             <td><?= $data['statpe']; ?></td>
+                                            <?php if ($this->session->userdata('role')=='admin'){?>
                                             <td>
                                                 <?php
                                                 $tghitung = date('Ymd') - preg_replace('/[^0-9]/', '', $data['tgldikembalikan']);
@@ -116,6 +121,7 @@
                                                     </div>
                                                 </div>
                                             </td>
+                                            <?php } ?>
                                         </tr>
                                     <?php $i++;
                                     endforeach; ?>

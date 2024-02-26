@@ -48,8 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  * @author		EllisLab Dev Team
  * @link		https://codeigniter.com/user_guide/libraries/loader.html
  */
+#[\AllowDynamicProperties]
 class CI_Loader {
-
 	// All these are set automatically. Don't mess with them.
 	/**
 	 * Nesting level of the output buffering mechanism
@@ -1195,6 +1195,7 @@ class CI_Loader {
 	 * @param	string		$object_name	Optional object name to assign to
 	 * @return	void
 	 */
+	
 	protected function _ci_init_library($class, $prefix, $config = FALSE, $object_name = NULL)
 	{
 		// Is there an associated config file for this class? Note: these should always be lowercase

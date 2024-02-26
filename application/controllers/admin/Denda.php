@@ -11,6 +11,7 @@ class Denda extends CI_Controller
         $this->load->model('Denda_m', 'denda');
         $this->load->model('Peminjaman_m', 'peminjaman');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {
@@ -72,7 +73,11 @@ class Denda extends CI_Controller
         $data['setting'] = $this->setting;
         $data['title'] = 'List Denda';
         $data['listdenda'] = $this->denda->getAlllistdenda()->result_array();
+        $data['denda'] =$this->db->query("SELECT * FROM denda")->result_array();
+        $data['denda'] = $this->denda->getTelat()->row_array();
+        //$data['denda'] = $this->denda->getAll($data['kodepinjam'])->result_array();
         // var_dump($data['listdenda']);exit;
+        // var_dump($data['denda']);exit;
         $this->load->view('template/header', $data);
         $this->load->view('template/navbar', $data);
         $this->load->view('admin/listdenda', $data);

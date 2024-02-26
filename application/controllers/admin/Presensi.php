@@ -10,6 +10,7 @@ class Presensi extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Presensi_m', 'presensi');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

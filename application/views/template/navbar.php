@@ -10,6 +10,12 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#logoutmodal">
+                <?= strtoupper($this->session->userdata('role'))  ?> 
+                <i class="fas fa-user"></i>
+            </a>
+        </li>
+        <li class="nav-item">
             <button class="btn btn-danger" data-toggle="modal" data-target="#logoutmodal">
                 <i class="fas fa-sign-out-alt"></i>
                 Logout
@@ -52,7 +58,7 @@
                         </p>
                     </a>
                 </li>
-
+<?php if ($this->session->userdata('role')=='admin'){?>
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-folder"></i>
@@ -194,6 +200,12 @@
                                 <p>Katalog</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="<?= base_url('admin/bukuhilang'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Buku Hilang/Rusak</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -249,6 +261,23 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-chart-area"></i>
+                        <p>
+                            Grafik
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">                      
+                        <li class="nav-item">
+                            <a href="<?= base_url('graf/grafcontrol'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Grafik Peminjaman</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
                 <li class="nav-item">
                     <a href="<?= base_url('admin/setting'); ?>" class="nav-link">
@@ -258,6 +287,14 @@
                         </p>
                     </a>
                 </li>
+                <?php }else{  ?>
+                    <li class="nav-item">
+                            <a href="<?= base_url('admin/peminjaman'); ?>" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Peminjaman</p>
+                            </a>
+                        </li>
+                <?php } ?>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

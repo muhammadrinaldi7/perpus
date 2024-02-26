@@ -19,6 +19,7 @@ class Katalog extends CI_Controller
         $this->load->model('Sumber_m', 'sumber');
         $this->load->model('Rak_m', 'rak');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

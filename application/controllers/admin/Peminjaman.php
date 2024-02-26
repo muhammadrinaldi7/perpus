@@ -115,7 +115,7 @@ class Peminjaman extends CI_Controller
         $data['denda'] = $this->denda->getTelat()->row_array();
         $this->load->view('template/header', $data);
         $this->load->view('template/navbar', $data);
-        $this->load->view('admin/detailpeminjaman', $data);
+        
         $this->load->view('template/footer');
     }
     public function kembalikan($kodepinjam)

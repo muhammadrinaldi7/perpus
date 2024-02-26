@@ -10,6 +10,7 @@ class Setting extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('user_m', 'user');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

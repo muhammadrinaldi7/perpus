@@ -75,6 +75,14 @@
                                             </div>
                                         </div>
                                         <small class="text-danger">Max.2MB</small>
+                                        <div class="form-group">
+                                        <label for="">Username</label>
+                                        <input type="username" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="">Password</label>
+                                        <input type="password" class="form-control">
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -91,6 +99,15 @@
                 </div>
             </div>
             <!-- /.row -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-header">Tambah User</div>
+                        <div class="card-body"></div>
+                        <div class="card-footer"></div>
+                    </div>
+                </div>
+            </div>
         </div>
         <!-- /.container-fluid -->
     </div>

@@ -15,6 +15,7 @@ class Guru extends CI_Controller
         $this->load->model('Anggota_m', 'anggota');
         $this->load->model('Jabatan_m', 'jabatan');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

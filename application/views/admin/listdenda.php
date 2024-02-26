@@ -73,7 +73,7 @@
                                                         $d = $denda['biaya'] * $diff;
                                                         $jml += $d * $b['qty'];
                                                     }
-                                                    echo '<b class="text-danger">Rp ' . $jml . ',-</b>';
+                                                    echo '<b class="text-danger">Rp ' .number_format($jml, 2, ",", ".") . ',-</b>';
                                                     echo '<br><small>*untuk ' . count($bb) . ' buku</small>';
                                                 } else {
                                                     echo "Tidak Ada Denda";

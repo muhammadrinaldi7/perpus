@@ -16,6 +16,7 @@ class Laporan extends CI_Controller
         $this->load->model('Buku_m', 'buku');
         $this->load->model('Kas_m', 'kas');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function guru()
     {

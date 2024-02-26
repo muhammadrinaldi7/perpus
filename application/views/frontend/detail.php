@@ -2,7 +2,7 @@
  <header class="masthead">
  	<div class="container">
  		<div class="masthead-subheading">Selamat Datang!</div>
- 		<div class="masthead-heading text-uppercase">SMKN 2 Pelaihari</div>
+ 		<div class="masthead-heading text-uppercase">MTsN 2 KAPUAS</div>
  		<a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#buku">Lihat Buku</a>
  	</div>
  </header>
@@ -12,7 +12,7 @@
  	<div class="container">
  		<!-- <div class="text-center">
  			<h2 class="section-heading text-uppercase">Perpustakaan</h2>
- 			<h3 class="section-subheading text-muted">SMKN 2 Pelaihari</h3>
+ 			<h3 class="section-subheading text-muted">MTsN 2 KAPUAS</h3>
  		</div> -->
  		<div class="row text-justify pl-5 pr-5">
             <div class="col-md-4">

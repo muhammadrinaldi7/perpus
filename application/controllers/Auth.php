@@ -73,7 +73,7 @@ $mail->Password = 'da53d481721fb8';
         // }else{
             $mail->addAddress($email);//tidak bisa 2 kali
         // }
-        $mail->Subject = 'Perpustakaan SMKN 2 Pelaihari';
+        $mail->Subject = 'Perpustakaan MTsN 2 KAPUAS';
         $mail->isHTML(true);
 
         $lap="<h3 style='color:blue;'><b>Besok hari jatuh tempo pengembalian Buku. Berikut data buku yang dipinjam:<br>
@@ -108,16 +108,28 @@ $mail->Password = 'da53d481721fb8';
         $username = $this->input->post('username', true);
         $password = $this->input->post('password');
         $hasil = $this->user->login($username, $password);
-        if ($hasil) {
+        if ($hasil['role']=='admin') {
             // True
             $data = [
                 "iduser" => $hasil['iduser'],
                 "username" => $hasil['username'],
-                "pass" => $hasil['pass']
+                "pass" => $hasil['pass'],
+                "role" => $hasil['role']
             ];
             $this->session->set_userdata($data);
             redirect(base_url('admin/dashboard'));
-        } else {
+        }else if($hasil['role']=='user')
+        {
+            $data = [
+                "iduser" => $hasil['iduser'],
+                "username" => $hasil['username'],
+                "pass" => $hasil['pass'],
+                "role" => $hasil['role']
+            ];
+            $this->session->set_userdata($data);
+            redirect(base_url('admin/dashboard'));
+        } 
+        else {
             // false
             $this->session->set_flashdata('message', 'gagal');
             redirect(base_url('auth'));

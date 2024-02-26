@@ -10,6 +10,7 @@ class Klasifikasi extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Klasifikasi_m', 'klasifikasi');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

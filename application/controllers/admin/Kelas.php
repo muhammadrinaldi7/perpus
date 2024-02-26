@@ -10,6 +10,7 @@ class Kelas extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('kelas_m', 'kelas');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

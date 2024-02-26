@@ -22,14 +22,14 @@
     <table border="0" align="center" width="100%">
         <tr align="center">
                     <td width="1px">
-                        <img width="100px" src="./assets/image/lg.jpg">
+                        <img width="100px" src="./assets/image/logo2.jpg">
                     </td>
                     <td align="center" style="margin-left:100">
-                        <font align="center" size="4">PEMERINTAH PROVINSI KALIMANTAN SELATAN</font> <br>
-                        <font align="center" size="4">DINAS PENDIDIKAN DAN KEBUDAYAAN</font> <br>
-                        <font align="center" size="4">SMK NEGERI 2 PELAIHARI</font> <br>
-                        <font align="center" size="2">Jl. Husni Thamrin Ds. Pemuda (KNPI) Pemuda,</font><br>
-                        <font align="center" size="2">Kecamatan. Pelaihari, Kabupaten Tanah Laut, Kalimantan Selatan 70814</font><br>
+                        <font align="center" size="4">PEMERINTAH PROVINSI KALIMANTAN TENGAH</font> <br>
+                        <font align="center" size="4">KEMENTERIAN AGAMA KABUPATEN KAPUAS</font> <br>
+                        <font align="center" size="4">MTs NEGERI 2 KAPUAS</font> <br>
+                        <font align="center" size="2">Jl. Trans Kalimantan Km. 9,</font><br>
+                        <font align="center" size="2">Kecamatan. Anjir Serapat Barat, Kabupaten Kapuas, Kalimantan Tengah</font><br>
                     </td>
                 </tr>
                 <tr>

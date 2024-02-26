@@ -15,6 +15,7 @@ class Siswa extends CI_Controller
         $this->load->model('Anggota_m', 'anggota');
         $this->load->model('Kelas_m', 'kelas');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

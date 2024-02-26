@@ -10,6 +10,7 @@ class Sumber extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Sumber_m', 'sumber');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {

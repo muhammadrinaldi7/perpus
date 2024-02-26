@@ -16,7 +16,7 @@ class Peminjaman_m extends CI_Model
     public function getPeminjamanFull()
     {
         $this->db->select('idpinjam, kodepinjam, peminjaman.kodeanggota, peminjaman.idanggota, anggota.kodeanggota, identitas, nama,telp, alamat,anggota.status as status, buku.kodebuku, buku.idbuku, peminjaman.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, tglpengembalian, qty, judul');
-        $this->db->where('peminjaman.status', 'dikembalikan');
+        $this->db->where('peminjaman.status', 'dipinjam');
         $this->db->join('anggota', 'peminjaman.idanggota=anggota.idanggota','left');
         $this->db->join('buku', 'peminjaman.idbuku=buku.idbuku','left');
         $this->db->group_by('kodepinjam');
@@ -44,8 +44,9 @@ class Peminjaman_m extends CI_Model
     }
     public function getDetail($kodepinjam)
     {
-        $this->db->select('idpinjam, kodepinjam, peminjaman.kodeanggota, peminjaman.idanggota, anggota.kodeanggota, identitas, nama,telp, alamat,anggota.status as status, peminjaman.kodebuku as kodebuku, peminjaman.idbuku as idbuku, peminjaman.status as statpe, tglpinjam, lamapinjam, tgldikembalikan, qty, judul');
-        $this->db->where('kodepinjam', $kodepinjam);
+        $this->db->select('peminjaman.idpinjam, peminjaman.kodepinjam,denda.biaya, peminjaman.kodeanggota, peminjaman.idanggota, anggota.kodeanggota, identitas, nama,telp, alamat,anggota.status as status, peminjaman.kodebuku as kodebuku, peminjaman.idbuku as idbuku, peminjaman.status as statpe, tglpinjam, lamapinjam, tgldikembalikan,tglpengembalian, peminjaman.qty, judul');
+        $this->db->where('peminjaman.kodepinjam', $kodepinjam);
+        $this->db->join('denda', 'peminjaman.idpinjam=denda.idpinjam');
         $this->db->join('anggota', 'peminjaman.idanggota=anggota.idanggota');
         $this->db->join('buku', 'peminjaman.idbuku=buku.idbuku');
         $data = $this->db->get('peminjaman');

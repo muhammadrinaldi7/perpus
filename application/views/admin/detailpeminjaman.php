@@ -3,7 +3,8 @@ foreach ($pinjam as $data) :
     if ($i > 0) {
         break;
     }
-?>
+   
+?><?=  var_dump($data['kodepinjam']); ?>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->

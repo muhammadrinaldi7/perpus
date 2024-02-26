@@ -1,4 +1,5 @@
 <!-- Content Wrapper. Contains page content -->
+
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -77,7 +78,6 @@
                                         <label for="">Peminjam : </label><br>
                                         <a href="#" class="badge badge-danger pull-right" id="ulangAg"><i class="fas fa-sync-alt"></i> Ganti Peminjam</a>
                                         <div id="dtpeminjam">
-
                                         </div>
                                         <input type="text" name="idanggota" id="idanggota" hidden>
                                         <input type="text" name="kodeanggota" id="kodeanggota" hidden>

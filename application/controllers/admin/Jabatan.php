@@ -10,6 +10,7 @@ class Jabatan extends CI_Controller
         $this->setting = $this->settingan->getSetting();
         $this->load->model('Jabatan_m', 'jabatan');
         cekstatuslogin();
+        cekroleadmin();
     }
     public function index()
     {
